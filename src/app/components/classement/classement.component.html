@@ -1,0 +1,16 @@
+
+<div>
+  <ul>
+    <li *ngFor="let cat of (cats$ | async)">
+      <img src="{{cat.url}}" />
+      <p>
+        <strong>
+          {{cat.likes}} Like(s)
+        </strong>
+        <span>{{cat.id}}</span>
+      </p>
+    </li>
+  </ul>
+</div>
+
+
