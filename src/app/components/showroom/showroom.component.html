@@ -1,6 +1,7 @@
 <div>
   <div class="split left">
     <div
+      *ngIf="selected"
       class="centered">
       <img src="{{selected[0]?.url}}" alt="Avatar woman">
       <h2>{{selected[0]?.likes}} Like(s)</h2>
@@ -8,15 +9,16 @@
         (click)="nextCouple(selected[0])">
         j'aime
       </button>
-      <h3>{{selected[0]?.id}}</h3>
+      <h3>{{selected[0]?.id}}</h3><br>
+      <a routerLink="/ranking">voir les chats les plus likés ({{nbrLikes}} en total)</a>
     </div>
-    <ng-template #loading>
-      Loading ...
-    </ng-template>
+
   </div>
+
 
   <div class="split right">
     <div
+      *ngIf="selected"
       class="centered">
       <img src="{{selected[1]?.url}}" alt="Avatar woman">
       <h2>{{selected[1]?.likes}} Like(s)</h2>
@@ -24,10 +26,8 @@
         (click)="nextCouple(selected[1])">
         j'aime
       </button>
-      <h3>{{selected[1]?.id}}</h3>
+      <h3>{{selected[1]?.id}}</h3><br>
+      <a routerLink="/ranking">voir les chats les plus likés ({{nbrLikes}} en total)</a>
     </div>
-    <ng-template #loading>
-      Loading ...
-    </ng-template>
   </div>
 </div>

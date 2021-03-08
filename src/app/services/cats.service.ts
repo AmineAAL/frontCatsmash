@@ -9,7 +9,7 @@ import {Store} from '../store/Store';
 @Injectable()
 export class CatsService {
   endpoint = 'https://atelier-amine-catmash.herokuapp.com/cats/';
-
+  // endpoint = 'http://localhost:8080/cats/';
   constructor(private http: HttpClient,
               private store: Store) {
   }
@@ -17,9 +17,9 @@ export class CatsService {
   getAllCats$: Observable<any> = this.http
     .get<any[]>(this.endpoint)
     .pipe(
-      tap(cats => {
-        this.store.set('cats', cats.images);
-        console.log(this.store.value);
+      tap(data => {
+        const cats = data.images;
+        this.store.set('cats', cats);
       })
     );
 
